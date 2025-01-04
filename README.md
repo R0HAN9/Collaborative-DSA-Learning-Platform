@@ -1,4 +1,4 @@
-# Collaborative DSA Learning Platform 🚀
+# Collaborative DSA Learning Platform! 🚀
 
 ## Overview 🎯
 
