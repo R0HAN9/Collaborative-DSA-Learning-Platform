@@ -4,65 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monaco Code Editor</title>
+
+    <!-- Include Monaco Editor via CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.38.0/min/vs/loader.min.js"></script>
+
     <style>
+        /* Styling for the code editor container */
         #editor {
             width: 100%;
-            height: 90vh;
-            border: 1px solid #ddd;
+            height: 90vh; /* Editor takes up 90% of viewport height */
+            border: 1px solid #ddd; /* Light border for better visibility */
         }
+
+        /* Styling for buttons section */
         .buttons {
-            margin-top: 20px;
+            margin-top: 20px; /* Space between editor and buttons */
         }
     </style>
 </head>
 <body>
 <h1>Collaborative DSA Learning - Code Editor</h1>
+
+<!-- Language selector dropdown for switching programming languages -->
 <div>
     <select id="languageSelector">
         <option value="java">Java</option>
         <option value="python">Python</option>
     </select>
 </div>
+
+<!-- Code editor container -->
 <div id="editor"></div>
+
+<!-- Buttons and output container -->
 <div class="buttons">
     <button onclick="runCode()">Run Code</button>
     <pre id="output"></pre>
 </div>
 
 <script>
+    // Configure Monaco editor's path for loading necessary scripts
     require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.38.0/min/vs' } });
-    let editor;
 
-    // Initialize Monaco editor
+    let editor; // Variable to hold the Monaco editor instance
+
+    /**
+     * Initializes the Monaco editor with the specified programming language.
+     * @param {string} language - The programming language for the editor.
+     */
     function initializeEditor(language) {
+        // If the editor already exists, dispose of it before creating a new one
+        if (editor) {
+            editor.dispose();
+        }
+
+        // Create a new instance of the Monaco editor
         editor = monaco.editor.create(document.getElementById('editor'), {
-            value: "// Start coding here...\n",
-            language: language,
-            theme: 'vs-dark',
+            value: "// Start coding here...\n", // Default content in the editor
+            language: language, // Programming language for syntax highlighting
+            theme: 'vs-dark', // Dark theme for better visibility
         });
     }
 
+    /**
+     * Event listener for language selection changes.
+     * Updates the editor language dynamically.
+     */
     document.getElementById('languageSelector').addEventListener('change', function() {
-        const language = this.value;
-        initializeEditor(language);
+        const language = this.value; // Get selected language
+        initializeEditor(language); // Reinitialize the editor with the new language
     });
 
-    initializeEditor('java');  // Initial editor language (Java)
+    // Initialize the editor with Java as the default language
+    initializeEditor('java');
 
+    /**
+     * Sends the code written in the editor to the backend for execution
+     * and displays the result or any errors in the output container.
+     */
     function runCode() {
-        const code = editor.getValue();  // Get the code from the editor
-        const language = document.getElementById('languageSelector').value;
+        const code = editor.getValue(); // Get the current code from the editor
+        const language = document.getElementById('languageSelector').value; // Get selected language
 
-        // Send the code to the backend for execution
+        // Send the code and language to the backend for execution
         fetch('/run', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ code: code, language: language })
+            headers: { 'Content-Type': 'application/json' }, // Specify JSON payload
+            body: JSON.stringify({ code: code, language: language }) // Send code and language
         })
-        .then(response => response.json())
-        .then(data => document.getElementById('output').textContent = data.output)
+        .then(response => response.json()) // Parse the JSON response
+        .then(data => {
+            // Display the output from the backend
+            document.getElementById('output').textContent = data.output;
+        })
         .catch(error => {
+            // Handle errors during the fetch operation
             document.getElementById('output').textContent = "Error executing code: " + error.message;
         });
     }
