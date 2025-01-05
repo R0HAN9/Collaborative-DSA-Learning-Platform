@@ -2,7 +2,7 @@
 
 ## Overview 🎯
 
-Welcome to the **Collaborative DSA Learning Platform**! This platform allows users to practice and learn Data Structures and Algorithms (DSA) interactively. It provides an engaging and collaborative environment where users can solve problems, track their progress, and get personalized recommendations. 
+Welcome to the **Collaborative DSA Learning Platform**! This platform allows users to practice and learn Data Structures and Algorithms (DSA) interactively. It provides an engaging and collaborative environment where users can solve problems, track their progress, and get personalized recommendations.
 
 ### 🌟 Key Features:
 - **User Authentication & Authorization**: Secure login and role-based access for users and admins. 
