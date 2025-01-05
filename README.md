@@ -31,7 +31,7 @@ The **Collaborative DSA Learning Platform** is built using **Spring Boot**, **Mo
 ### 2. **Problem Solving** 💻
    - Users can browse and solve DSA problems of varying difficulty. 
    - Each problem is associated with specific **tags** (e.g., Arrays, Linked Lists) to help users focus on specific topics. 
-   - The solution submission feature allows users to submit their solutions, which are then evaluated and stored in their profile.
+   - The solution submission feature allows users to submit their solutions, which are then evaluated and stored in their profile. 
 
 ### 3. **💻 **Code Editor**: Seamless Problem Solving**
    - Integrated **Monaco Editor** enables real-time coding and problem-solving directly on the platform.
