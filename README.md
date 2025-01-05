@@ -29,7 +29,7 @@ The **Collaborative DSA Learning Platform** is built using **Spring Boot**, **Mo
    - **Role-Based Access Control (RBAC)**: There are roles for users and admins. Admins have access to all functionality, while regular users are restricted to their own profile and problem-solving areas. 
 
 ### 2. **Problem Solving** 💻
-   - Users can browse and solve DSA problems of varying difficulty.
+   - Users can browse and solve DSA problems of varying difficulty. 
    - Each problem is associated with specific **tags** (e.g., Arrays, Linked Lists) to help users focus on specific topics.
    - The solution submission feature allows users to submit their solutions, which are then evaluated and stored in their profile.
 
