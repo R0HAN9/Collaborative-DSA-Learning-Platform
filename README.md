@@ -25,7 +25,7 @@ The **Collaborative DSA Learning Platform** is built using **Spring Boot**, **Mo
 
 ### 1. **User Authentication & Authorization** 🔐
    - Users can register, log in, and manage their profiles. 
-   - The platform uses **JWT** tokens for secure authentication. Each request to the backend is verified using a valid token. 
+   - The platform uses **JWT** tokens for secure authentication. Each request to the backend is verified using a valid token.
    - **Role-Based Access Control (RBAC)**: There are roles for users and admins. Admins have access to all functionality, while regular users are restricted to their own profile and problem-solving areas. 
 
 ### 2. **Problem Solving** 💻
