@@ -5,7 +5,7 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 /**
  * WebSocket handler for the code editor.
- * This class manages WebSocket connections and handles text messages 
+ * This class manages WebSocket connections and handles text messages
  * sent by connected clients in the code editor feature.
  */
 public class CodeEditorWebSocketHandler extends TextWebSocketHandler {
