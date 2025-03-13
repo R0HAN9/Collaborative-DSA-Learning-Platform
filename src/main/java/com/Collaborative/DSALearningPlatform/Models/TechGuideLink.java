@@ -3,7 +3,7 @@ package com.Collaborative.DSALearningPlatform.Models
 /**
  * Represents a link to a technical guide resource.
  * This class is used to encapsulate information about the guide's title and URL.
- */
+ */ 
 public class TechGuideLink {
 
     // Title or name of the technical guide resource
