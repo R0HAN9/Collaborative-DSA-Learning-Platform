@@ -1,4 +1,4 @@
-package com.Collaborative.DSALearningPlatform.Models;
+package com.Collaborative.DSALearningPlatform.Models
 
 /**
  * Represents a link to a technical guide resource.
